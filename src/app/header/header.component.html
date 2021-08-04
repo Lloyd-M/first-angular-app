@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarTogglerDemo03"
+      aria-controls="navbarTogglerDemo03"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Recipe Book</a>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item" routerLinkActive="active" *ngIf="isAuthenticated">
+          <a class="nav-link" [routerLink]="['/recipes']">Recipes</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="!isAuthenticated">
+          <a class="nav-link" [routerLink]="['/auth']">Authentication</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/shopping-list']"
+            >Shopping List</a
+          >
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <div>
+          <button
+            class="btn btn-primary"
+            (click)="onSaveRecipes()"
+            *ngIf="isAuthenticated"
+          >
+            Save Data
+          </button>
+          <button
+            class="btn btn-primary"
+            (click)="onLoadRecipes()"
+            *ngIf="isAuthenticated"
+          >
+            Load Data
+          </button>
+          <button
+            class="btn btn-primary"
+            (click)="onLogout()"
+            *ngIf="isAuthenticated"
+          >
+            Logout
+          </button>
+        </div>
+        <!-- <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            (click)="onSaveRecipes()"
+          >
+            Save Data
+          </a>
+          <div
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdown"
+            appDropdown
+          >
+            <a class="dropdown-item">Action</a>
+            <a class="dropdown-item">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item">Something else here</a>
+          </div>
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            (click)="onLoadRecipes()"
+          >
+            Load Data
+          </a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
